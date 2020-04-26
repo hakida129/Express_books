@@ -1,0 +1,12 @@
+h3 List book
+a(href="/books/create") New book
+
+form(action="/books/search", method="GET")
+    input(type="text", name="title")
+    button Search
+ul 
+    each book in books
+        li
+            span= book.title
+            span &nbsp
+            a(href='/books/' + book.id) View
