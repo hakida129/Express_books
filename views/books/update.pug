@@ -1,0 +1,9 @@
+
+extends ../layouts/common
+
+block content
+
+    h3 Update book
+    form(action="/books/update", method="POST")
+        input(type="text" name="titlebook" value="book.id")
+        button(class="btn btn-success ml-3") Update

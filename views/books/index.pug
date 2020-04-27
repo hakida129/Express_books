@@ -4,7 +4,7 @@ block content
 
     h3(class="text-center") List book
     img(src="/image/logo2.jpg", class="img-thumbnail")
-    a(href="/books/create", class="btn btn-primary mb-2 ml-5") New book
+    a(href="/books/create", class="btn btn-primary mb-2 ml-5 w-64 h-64") New book
 
     form(action="/books/search", method="GET", class="d-flex mt-3")
         input(type="text", name="title", class="form-control")
@@ -15,4 +15,5 @@ block content
                 span= book.title
                 span &nbsp
                 a(href='/books/' + book.id, class="btn btn-primary mb-2") View
-                a(href='#', class="btn btn-danger ml-2") Delete
+                a(href='/books/' + book.id +'/delete', class="btn btn-danger ml-2") Delete
+                a(href='/books/' + book.id +'/update', class="btn btn-warning ml-2") Update

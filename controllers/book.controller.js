@@ -34,3 +34,20 @@ module.exports.postCreate = function(req, res){
     db.get('books').push(req.body).write();
     res.redirect('/books')
 };
+
+module.exports.delete = function(req, res){
+    var id_delete = req.params.id_delete;
+    db.get('books').remove({id : id_delete}).write();
+    res.redirect('/books');
+};
+
+module.exports.update = function(req, res){
+    res.render('books/update',{
+        book : db.get('books').value()
+    });
+};
+
+module.exports.postUpdate = function(req, res){
+    var id_update = req.params.id_update;
+
+};
