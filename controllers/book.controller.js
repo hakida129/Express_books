@@ -49,5 +49,7 @@ module.exports.update = function(req, res){
 
 module.exports.postUpdate = function(req, res){
     var id_update = req.params.id_update;
-
+    var title = req.body.titlebook;
+    db.get('books').find({id : id_update}).assign({title : title }).write()
+    res.redirect('/books');
 };

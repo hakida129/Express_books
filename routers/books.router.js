@@ -18,6 +18,6 @@ router.get('/:id_update/update', controller.update);
 
 router.post('/create', controller.postCreate);
 
-router.get('/:id_update/update', controller.postUpdate);
+router.post('/:id_update/update', controller.postUpdate);
 
 module.exports = router;
