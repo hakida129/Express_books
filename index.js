@@ -7,6 +7,7 @@ var bookRouter = require('./routers/books.router');
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(express.static('public'))
 
 var port = 3001;
 
