@@ -36,20 +36,20 @@ module.exports.postCreate = function(req, res){
 };
 
 module.exports.delete = function(req, res){
-    var id_delete = req.params.id_delete;
+    var id_delete = req.params.id;
     db.get('books').remove({id : id_delete}).write();
     res.redirect('/books');
 };
 
 module.exports.update = function(req, res){
+    var book = db.get('books').find({id: req.params.id}).value();
     res.render('books/update',{
-        book : db.get('books').value()
+        book : book
     });
 };
 
 module.exports.postUpdate = function(req, res){
-    var id_update = req.params.id_update;
-    var title = req.body.titlebook;
-    db.get('books').find({id : id_update}).assign({title : title }).write()
+    var id = req.body.id
+    db.get('books').find({id : id}).assign({title :req.body.title }).write()
     res.redirect('/books');
 };

@@ -4,6 +4,7 @@ extends ../layouts/common
 block content
 
     h3 Update book
-    form(action="/books/create", method="POST")
-        input(type="text" name="titlebook" value='book.title')
+    form(action="/books/update", method="POST")
+        input(type="hidden" name="id" value=book.id)
+        input(type="text" name="title" value=book.title)
         button(class="btn btn-success ml-3") Update
