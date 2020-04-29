@@ -10,7 +10,7 @@ app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.static('public'))
 
-var port = 3001;
+var port = 3333;
 
 app.set('view engine', 'pug');
 app.set('views', './views')
