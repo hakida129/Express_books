@@ -1,12 +1,22 @@
 extends ../layouts/common
 
 block content
-    h3 List users
-            a(href="/users/create" class="btn btn-success ml-2") Add user
-            ul
-                each user in users
-                    li
-                        span= user.name
-                        a(href="/users/" + user.id, class="btn btn-primary ml-2") View
-                        a(href="/users/" + user.id +"/delete", class="btn btn-danger ml-2") Delete
-                        a(href="#", class="btn btn-warning ml-2") Edit
+    h1 List Users
+
+    a(href="/create") Add New user
+
+    form(action="/users/create",method = "POST")
+        label Name:
+        br
+        input(name = "name", type= "text")
+        br
+        button Create
+
+    ul
+      each user in users
+        li
+          span=user.name
+          span &nbsp
+          a(href="/users/" + user.id + "/update") Update
+          span &nbsp
+          a(href="/users/" + user.id + "/delete") Delete

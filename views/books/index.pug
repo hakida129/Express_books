@@ -1,19 +1,25 @@
 extends ../layouts/common
-
 block content
+  h1 List Books
 
-    h3(class="text-center") List book
-    img(src="/image/logo2.jpg", class="img-thumbnail")
-    a(href="/books/create", class="btn btn-primary mb-2 ml-5 w-64 h-64") New book
+  a(href="/create") Add New Book
 
-    form(action="/books/search", method="GET", class="d-flex mt-3")
-        input(type="text", name="title", class="form-control")
-        button(class="btn btn-primary ml-2 ") Search
-    ul 
-        each book in books
-            li
-                span= book.title
-                span &nbsp
-                a(href='/books/' + book.id, class="btn btn-primary mb-2") View
-                a(href='/books/' + book.id +'/delete', class="btn btn-danger ml-2") Delete
-                a(href='/books/' + book.id +'/update', class="btn btn-warning ml-2") Update
+  form(action="/books/create",method = "POST")
+      label Title:
+      br
+      input(name = "title", type= "text")
+      br
+      label Descripttion
+      br
+      input(name = "description", type= "text")
+      br
+      button Create
+
+  ul
+    each book in books
+      li
+        span=book.title
+        span &nbsp
+        a(href="/books/" + book.id + "/update") Update
+        span &nbsp
+        a(href="/books/" + book.id + "/delete") Delete

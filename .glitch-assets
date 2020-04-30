@@ -1,0 +1,21 @@
+html
+head
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+
+body       
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='/') CodersX
+  button.navbar-toggler
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/')
+          | Home 
+      li.nav-item
+        a.nav-link(href='/users') User
+     
+
+
+block content
