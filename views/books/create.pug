@@ -1,9 +1,14 @@
 extends ../layouts/common
 
 block content
+    .container
+        h3 Create book
+        form.form-group(action="/books/create", method="POST")
 
-    h3 Create book
-    form(action="/books/create", method="POST")
-        label Title
-        input(type="text", name="title")
-        button Create
+            label(for="title") Title
+            input#title.form-control(type="text", name="title")
+
+            label(for="description") Description
+            input#description.form-control(type="text", name="description")
+
+            button.btn.btn-primary.mt-2 Create

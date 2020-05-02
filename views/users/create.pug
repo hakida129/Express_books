@@ -1,8 +1,9 @@
 extends ../layouts/common
 
 block content
+
     h3 Create user
-        form(action="/users/create", method="POST")
-            label Name
-            input(type="text", name= "name")
-            button Create
+    form(action="/users/create", method="POST")
+        label Title
+        input(type="text", name="name")
+        button Create

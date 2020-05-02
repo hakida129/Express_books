@@ -1,9 +1,12 @@
 extends ../layouts/common
 
 block content
-
-    h3 Book
-    p   
-        b Title
-        span &nbsp
-        span= book.title
+    .container
+        h3 List Book
+        table.table   
+            tr
+                th Name
+                th Description
+            tr
+                td=book.title
+                td=book.description
