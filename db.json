@@ -18,12 +18,20 @@
   ],
   "users": [
     {
-      "name": "HTML",
+      "name": "CSS3",
       "id": 1
     },
     {
-      "name": "react",
+      "name": "ReactJs",
       "id": 2
+    },
+    {
+      "name": "HTML5",
+      "id": 3
+    },
+    {
+      "name": "NodeJs",
+      "id": 4
     }
   ]
 }

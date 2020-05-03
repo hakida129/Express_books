@@ -1,0 +1,10 @@
+
+extends ../layouts/common
+
+block content
+
+    h3 Update user
+    form(action="/users/update", method="POST")
+        input(type="hidden" name="id" value=user.id)
+        input(type="text" name="name" value=user.name)
+        button(class="btn btn-success ml-3") Update
