@@ -1,9 +1,11 @@
 extends ../layouts/common
 
 block content
+    .container
+        h3 Create user
+        form.form-group(action="/users/create", method="POST")
 
-    h3 Create user
-    form(action="/users/create", method="POST")
-        label Title
-        input(type="text", name="name")
-        button Create
+            label(for="name") Name
+            input#name.form-control(type="text", name="name")
+
+            button.btn.btn-primary.mt-2 Create

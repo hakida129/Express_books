@@ -1,8 +1,12 @@
 extends ../layouts/common
 
 block content
-    h3 Infomation User
-    p
-        b Name
-        span &nbsp
-        span= user.name
+    .container
+        h3 List Users
+        table.table   
+            tr
+                th Name
+                th ID
+            tr
+                td=user.name
+                td=user.id

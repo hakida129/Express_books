@@ -8,12 +8,12 @@ module.exports.index = function(req, res){
 };
 
 module.exports.search = function(req,res){
-    var name = req.query.title;
-    var matchedUser = db.get('books').value().filter(function(book){
-        return book.title.toLowerCase().indexOf(name.toLowerCase()) !== -1
+    var title = req.query.title;
+    var matchedBook = db.get('books').value().filter(function(book){
+        return book.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
     });
     res.render('books/index',{   
-        books : matchedUser
+        books : matchedBook
     })
 };
 
