@@ -7,12 +7,12 @@ block content
             .form-group
                 label(for='user') Choose User
                 select#user.form-control
-                    each user in users
-                        option=user.id
+                    each transaction in transactions
+                        option=transaction.userName
 
                 label(for='book') Choose Book
                 select#book.form-control
-                        each book in books
-                            option=book.id
+                        each transaction in transactions
+                            option= transaction.bookTitle
 
         button.btn.btn-primary Create
