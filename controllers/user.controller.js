@@ -18,7 +18,7 @@ module.exports.search = function(req, res){
 };
 
 module.exports.get = function(req, res){
-    var id = parseInt(req.params.id);
+    var id = req.params.id;
     var user = db.get('users').find({ id : id }).value()
     res.render('users/view',{
         user : user
@@ -26,7 +26,7 @@ module.exports.get = function(req, res){
 };
 
 module.exports.delete = function(req, res){
-    var id = parseInt(req.params.id);
+    var id = req.params.id;
     db.get('users').remove({ id : id }).write();
     res.redirect('/users')
 };
@@ -42,14 +42,14 @@ module.exports.postCreate = function(req, res){
 };
 
 module.exports.update = function(req, res){
-    var user = db.get('users').find({ id : parseInt(req.params.id) }).value();
+    var user = db.get('users').find({ id : req.params.id }).value();
     res.render('users/update',{
         user : user
     });
 };
 
 module.exports.postUpdate =function(req, res){
-    var id = parseInt(req.body.id);
+    var id = req.body.id;
     db.get('users').find({ id : id }).assign({ name : req.body.name }).write()
     res.redirect('/users');
     

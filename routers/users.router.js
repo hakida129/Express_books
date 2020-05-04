@@ -6,15 +6,15 @@ router.get('/', controller.index);
 
 router.get('/search', controller.search);
 
+router.get('/create', controller.create);
+
 router.get('/:id', controller.get);
 
 router.get('/:id/delete', controller.delete);
 
-router.get('/create', controller.create);
+router.get('/:id/update', controller.update);
 
 router.post('/create', controller.postCreate);
-
-router.get('/:id/update', controller.update);
 
 router.post('/update', controller.postUpdate);
 
