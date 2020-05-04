@@ -1,0 +1,18 @@
+extends ../layouts/common
+
+block content
+    .container
+        h3 Create transaction
+        form.form-group(action="/transactions/create", method="POST")
+            .form-group
+                label(for='user') Choose User
+                select#user.form-control
+                    each user in users
+                        option=user.id
+
+                label(for='book') Choose Book
+                select#book.form-control
+                        each book in books
+                            option=book.id
+
+        button.btn.btn-primary Create

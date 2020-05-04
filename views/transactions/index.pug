@@ -1,0 +1,16 @@
+extends ../layouts/common
+
+block content
+    .container 
+        h3 List Transactions
+            a.btn.btn-success.ml-2(href="/transactions/create") New Transaction
+        table.table
+            tr
+                th User Name
+                th Title Book
+                th Id
+            each transaction in transactions
+                tr
+                    td= transaction.userId
+                    td= transaction.bookId
+                    td= transaction.id

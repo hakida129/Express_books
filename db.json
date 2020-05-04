@@ -33,5 +33,27 @@
       "name": "NodeJs",
       "id": 4
     }
+  ],
+  "transactions": [
+    {
+      "userId": "NodeJs",
+      "bookId": "udGBMiQxH",
+      "id": 1
+    },
+    {
+      "userId": "HTML",
+      "bookId": "k6ElS5axl",
+      "id": 2
+    },
+    {
+      "userId": "CSS",
+      "bookId": "OaXFHhTlp",
+      "id": 3
+    },
+    {
+      "userId": "React",
+      "bookId": "udGBMiQxH",
+      "id": 4
+    }
   ]
 }

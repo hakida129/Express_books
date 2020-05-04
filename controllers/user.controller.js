@@ -32,7 +32,7 @@ module.exports.delete = function(req, res){
 };
 
 module.exports.create = function(req, res){
-    res.render('users/index')
+    res.render('users/create')
 };
 
 module.exports.postCreate = function(req, res){
