@@ -5,25 +5,25 @@ block content
         h3 List Transactions
         table.table
             tr
-                th User Name
-                th Title Book
+                th User_Id
+                th Book_Id
             each transaction in transactions
                 tr
-                    td= transaction.userName
-                    td= transaction.bookTitle
+                    td= transaction.userId
+                    td= transaction.bookId
 
         
         form.form-group(method="POST")
             .form-group
                 label(for='user') Choose User
-                select#user.form-control
+                select#user.form-control(name="userRecieve")
                     each transaction in transactions
-                        option=transaction.userName
+                        option=transaction.userId
 
                 label(for='book') Choose Book
-                select#book.form-control
+                select#book.form-control(name="bookRecieve")
                         each transaction in transactions
-                            option= transaction.bookTitle
+                            option= transaction.bookId
 
-        button.btn.btn-primary Create transaction
+            button.btn.btn-primary Create transaction
                     
