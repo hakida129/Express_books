@@ -7,23 +7,28 @@ block content
             tr
                 th User_Id
                 th Book_Id
+                th Status
             each transaction in transactions
                 tr
                     td= transaction.userId
                     td= transaction.bookId
-
-        
+                    td
+                        a(href="/transactions/" + transaction.id + "/complete") Chua Hoàn thành
+                    td  
+                        if(transaction.isComplete)
+                            li Hoan thanh
+                        
         form.form-group(method="POST")
             .form-group
                 label(for='user') Choose User
                 select#user.form-control(name="userRecieve")
                     each transaction in transactions
-                        option=transaction.userId
+                        option=transaction.userName
 
                 label(for='book') Choose Book
                 select#book.form-control(name="bookRecieve")
                         each transaction in transactions
-                            option= transaction.bookId
+                            option= transaction.bookTitle
 
             button.btn.btn-primary Create transaction
                     

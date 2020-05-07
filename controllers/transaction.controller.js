@@ -2,9 +2,11 @@ var db = require('../db');
 var shortid = require('shortid');
 
 module.exports.index = function(req, res){
-    // var users = db.get('users').value();
-    // var books = db.get('books').value();
-    // var transactions = db.get('transactions').value();
+    var users = db.get('users').value();
+    var books = db.get('books').value();
+    var transactions = db.get('transactions').value();
+
+    
 
     // var changedTrans = transactions.map(function(trans){
     //     console.log(trans);
@@ -19,7 +21,8 @@ module.exports.index = function(req, res){
     // }
     // })
     res.render('transactions/index',{
-        transactions : db.get('transactions').value()
+        transactions : db.get('transactions').value(),
+
     })
 };
 
@@ -35,5 +38,11 @@ module.exports.create = function(req, res){
         bookId: idBookRecieve
     })
     .write();
+    res.redirect('/transactions')
+};
+
+module.exports.complate = function(req, res){
+    var id = req.params.id;
+    db.get("transactions").find({ id: id }).assign({isComplete : true}).write();
     res.redirect('/transactions')
 };

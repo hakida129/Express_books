@@ -36,6 +36,24 @@ module.exports.create = function(req, res){
 };
 
 module.exports.postCreate = function(req, res){
+    var errors = [];
+    if(!req.body.name ){
+        errors.push('Name is not require')
+    }
+    if(!req.body.phone){
+        errors.push('Phone is not require')
+    }
+    if(req.body.name.length > 30){
+        errors.push("Name too long")
+    }
+    if(errors.length){
+        res.render('users/create',{
+            errors : errors,
+            values : req.body
+        });
+        return;
+    }
+
     req.body.id = shortid.generate();
     db.get('users').push(req.body).write();
     res.redirect('/users');
@@ -50,7 +68,7 @@ module.exports.update = function(req, res){
 
 module.exports.postUpdate =function(req, res){
     var id = req.body.id;
-    db.get('users').find({ id : id }).assign({ name : req.body.name }).write()
+    db.get('users').find({ id : id }).assign({ name : req.body.name, phone : req.body.phone }).write()
     res.redirect('/users');
     
 };
