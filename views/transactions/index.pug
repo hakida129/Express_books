@@ -3,6 +3,8 @@ extends ../layouts/common
 block content
     .container 
         h3 List Transactions
+        if error    
+            .alert.alert-danger= error
         table.table
             tr
                 th User_Id
@@ -13,7 +15,7 @@ block content
                     td= transaction.userId
                     td= transaction.bookId
                     td
-                        a(href="/transactions/" + transaction.id + "/complete") Chua Hoàn thành
+                        a(href="/transactions/" + transaction.id + "/complete") Đánh dấu
                     td  
                         if(transaction.isComplete)
                             li Hoan thanh

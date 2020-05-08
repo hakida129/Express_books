@@ -21,7 +21,7 @@ module.exports.index = function(req, res){
     // }
     // })
     res.render('transactions/index',{
-        transactions : db.get('transactions').value(),
+        transactions : db.get('transactions').value()
 
     })
 };
@@ -43,6 +43,22 @@ module.exports.create = function(req, res){
 
 module.exports.complate = function(req, res){
     var id = req.params.id;
+    var values = []
+    //console.log(id);
+    var data = db.get("transactions").value();
+    console.log(data.bookId);
+        
+        // if(item.id !== id){
+        //     var error = "Transaction does not exit";
+        //     res.render('transactions/index',{
+        //         error : error,
+        //         transactions : db.get('transactions').value()
+        //     });
+        //     return;
+        // }
+    
+
+    
     db.get("transactions").find({ id: id }).assign({isComplete : true}).write();
     res.redirect('/transactions')
 };
