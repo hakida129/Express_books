@@ -2,40 +2,41 @@ var db = require('../db');
 var shortid = require('shortid');
 
 module.exports.index = function(req, res){
-    var users = db.get('users').value();
-    var books = db.get('books').value();
+    var userData = db.get('users').value();
+    var bookData = db.get('books').value();
     var transactions = db.get('transactions').value();
 
+    var collections = transactions.map( trans => {
+        var user = userData.find( user => user.id === trans.userId);
+        var book = bookData.find( book => book.id === trans.bookId);
+        return  {
+            id : trans.id,
+            isComplete : trans.isComplete,
+            userName : user.name,
+            bookTitle : book.title
+                    }
+    });
     
-
-    // var changedTrans = transactions.map(function(trans){
-    //     console.log(trans);
-    //     var userName =[], bookTitle = [];
-    //     var user = users.find(user => users.id === transactions.userId);
-    //     userName.push(user.name);
-    //     var book = books.find(book => books.id === transactions.bookId);
-    //     bookTitle.push(book.title);
-    // return {
-    //     userName ,
-    //     bookTitle 
-    // }
-    // })
     res.render('transactions/index',{
-        transactions : db.get('transactions').value()
-
+        transactions : collections,
+        userData, 
+        bookData
     })
 };
 
-module.exports.create = function(req, res){
-    var idUserRecieve = db.get('users').find({id : req.body.userRecieve}).value().id;
-    var idBookRecieve = db.get('books').find({id : req.body.bookRecieve}).value().id;
 
-    var id = shortid.generate();
+module.exports.create = function(req, res){
+    var userRecieve = req.body.userRecieve;
+    var bookRecieve = req.body.bookRecieve
+    var idUserRecieve = db.get('users').find({name : userRecieve}).value().id;
+    var idBookRecieve = db.get('books').find({title : bookRecieve}).value().id;
+    req.body.id = shortid.generate();
     db.get('transactions')
     .push({
-        id,
-        userId: idUserRecieve,
-        bookId: idBookRecieve
+        id: shortid.generate(),
+        userId : idUserRecieve,
+        bookId : idBookRecieve,
+        isComplete : false
     })
     .write();
     res.redirect('/transactions')
@@ -43,22 +44,6 @@ module.exports.create = function(req, res){
 
 module.exports.complate = function(req, res){
     var id = req.params.id;
-    var values = []
-    //console.log(id);
-    var data = db.get("transactions").value();
-    console.log(data.bookId);
-        
-        // if(item.id !== id){
-        //     var error = "Transaction does not exit";
-        //     res.render('transactions/index',{
-        //         error : error,
-        //         transactions : db.get('transactions').value()
-        //     });
-        //     return;
-        // }
-    
-
-    
     db.get("transactions").find({ id: id }).assign({isComplete : true}).write();
     res.redirect('/transactions')
 };

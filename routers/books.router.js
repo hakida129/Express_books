@@ -1,10 +1,11 @@
 var express = require('express');
 
 var controller = require('../controllers/book.controller');
+var middleware = require('../validation/countCookie.middleware');
 
 var router = express.Router();
 
-router.get('/', controller.index);
+router.get('/',middleware.countCookie, controller.index);
 
 router.get('/search', controller.search);
 

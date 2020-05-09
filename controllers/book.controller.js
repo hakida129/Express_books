@@ -2,6 +2,7 @@ var db = require('../db');
 var shortid = require('shortid');
 
 module.exports.index = function(req, res){
+    console.log(res.locals.countCookie + 1);
     res.render('books/index',{
         books : db.get('books').value()
     })
@@ -14,7 +15,7 @@ module.exports.search = function(req,res){
     });
     res.render('books/index',{   
         books : matchedBook
-    })
+    });
 };
 
 module.exports.create = function(req, res){

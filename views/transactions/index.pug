@@ -1,36 +1,39 @@
 extends ../layouts/common
 
 block content
-    .container 
-        h3 List Transactions
-        if error    
-            .alert.alert-danger= error
-        table.table
-            tr
-                th User_Id
-                th Book_Id
-                th Status
-            each transaction in transactions
-                tr
-                    td= transaction.userId
-                    td= transaction.bookId
-                    td
-                        a(href="/transactions/" + transaction.id + "/complete") Đánh dấu
-                    td  
-                        if(transaction.isComplete)
-                            li Hoan thanh
-                        
-        form.form-group(method="POST")
-            .form-group
-                label(for='user') Choose User
-                select#user.form-control(name="userRecieve")
+    .container
+        .row.mt-5
+            .col-sm-9
+                h3.text-center List Transactions
+                if error    
+                    .alert.alert-danger= error
+                table.table.mt-5
+                    tr
+                        th User_Id
+                        th Book_Id
+                        th Status
+                        th Action
                     each transaction in transactions
-                        option=transaction.userName
+                        tr
+                            td= transaction.userName
+                            td= transaction.bookTitle
+                            td= transaction.isComplete ? transaction.isComplete : "false"
+                            td
+                                a(href="/transactions/" + transaction.id + "/complete") Complete
+                            
+            .col-sm-3  
+                h3 Add new transaction              
+                form.form-group.mt-5(method="POST")
+                    .form-group
+                        label(for='user') Choose User
+                        select#user.form-control(name="userRecieve")
+                            each user in userData
+                                option=user.name
 
-                label(for='book') Choose Book
-                select#book.form-control(name="bookRecieve")
-                        each transaction in transactions
-                            option= transaction.bookTitle
+                        label(for='book') Choose Book
+                        select#book.form-control(name="bookRecieve")
+                                each book in bookData
+                                    option= book.title
 
-            button.btn.btn-primary Create transaction
-                    
+                    button.btn.btn-primary Create transaction
+                        
