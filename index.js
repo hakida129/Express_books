@@ -29,7 +29,7 @@ app.get('/', function(req, res){
 
 app.use('/books', bookRouter);
 app.use('/users', authMiddleware.requireMiddleware , userRouter);
-app.use('/transactions', transactionRouter);
+app.use('/transactions',authMiddleware.requireMiddleware, transactionRouter);
 app.use('/auth', authRouter);
 
 app.listen(port, function(){

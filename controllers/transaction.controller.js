@@ -2,6 +2,7 @@ var db = require('../db');
 var shortid = require('shortid');
 
 module.exports.index = function(req, res){
+    //var id = req.cookies.userId;
     var userData = db.get('users').value();
     var bookData = db.get('books').value();
     var transactions = db.get('transactions').value();
@@ -16,7 +17,7 @@ module.exports.index = function(req, res){
             bookTitle : book.title
                     }
     });
-    
+
     res.render('transactions/index',{
         transactions : collections,
         userData, 
