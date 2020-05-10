@@ -1,5 +1,6 @@
-var md5 = require('md5');
+//var md5 = require('md5');
 var bcrypt = require('bcrypt');
+var saltRounds = 10;
 var db = require('../db');
 
 module.exports.login = function(req, res){
@@ -20,6 +21,9 @@ module.exports.postLogin= function(req,res){
         });
         return;
     }
+    // var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+    //     return hash;
+    // })
     var hashedPassword = md5(password)
     if(user.password !== hashedPassword){
         res.render('auth/login',{
