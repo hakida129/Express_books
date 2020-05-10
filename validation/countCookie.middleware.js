@@ -1,4 +1,5 @@
 module.exports.countCookie = function(req, res, next){
-        res.locals.countCookie = 1;
+    res.cookie('cookie', parseInt(req.cookies.cookie) + 1);
+    console.log("Number access website : " + parseInt(req.cookies.cookie) + 1 );
     next();
 };

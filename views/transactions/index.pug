@@ -12,14 +12,15 @@ block content
                         th User_Id
                         th Book_Id
                         th Status
-                        th Action
                     each transaction in transactions
                         tr
                             td= transaction.userName
                             td= transaction.bookTitle
-                            td= transaction.isComplete ? transaction.isComplete : "false"
-                            td
-                                a(href="/transactions/" + transaction.id + "/complete") Complete
+                            if(transaction.isComplete)
+                                td Done
+                            else
+                                td
+                                    a(href="/transactions/" + transaction.id + "/complete") Complete
                             
             .col-sm-3  
                 h3 Add new transaction              
