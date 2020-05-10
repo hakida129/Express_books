@@ -25,22 +25,37 @@
     {
       "name": "Ngoc",
       "phone": "1242342",
-      "id": "5qiD4sc67"
+      "id": "5qiD4sc67",
+      "email": "123@gmail.com",
+      "password": "123456"
     },
     {
       "name": "Thao",
       "phone": "236546",
-      "id": "7UzfK2OuB"
+      "id": "7UzfK2OuB",
+      "email": "abc@gmail.com",
+      "password": "123456"
     },
     {
       "name": "hakida",
       "phone": "3454",
-      "id": "iTc_DOuW9"
+      "id": "iTc_DOuW9",
+      "email": "1wer@gmail.com",
+      "password": "123456"
     },
     {
       "name": "thinh",
       "phone": "23424",
-      "id": "a4B9nDFcn"
+      "id": "a4B9nDFcn",
+      "email": "asdf@gmail.com",
+      "password": "123456"
+    },
+    {
+      "name": "Thien ",
+      "phone": "123345456",
+      "id": "Mc3Pslt-t",
+      "email": "asdd@gmail.com",
+      "password": "123456"
     }
   ],
   "transactions": [
