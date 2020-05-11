@@ -1,4 +1,4 @@
-//var md5 = require('md5');
+var md5 = require('md5');
 var bcrypt = require('bcrypt');
 var saltRounds = 10;
 var db = require('../db');
@@ -34,6 +34,8 @@ module.exports.postLogin= function(req,res){
         });
         return;
     }
-    res.cookie('userId', user.id);
+    res.cookie('userId', user.id,{
+        signed : true
+    });
     res.redirect('/users');
 }

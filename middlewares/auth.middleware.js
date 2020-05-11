@@ -1,8 +1,8 @@
 var db = require('../db');
 
 module.exports.requireMiddleware = function(req, res, next){
-    var user = db.get('users').find({ id : req.cookies.userId }).value();
-    if(!req.cookies.userId){
+    var user = db.get('users').find({ id : req.signedCookies.userId }).value();
+    if(!req.signedCookies.userId){
         res.redirect('auth/login');
         return;
     }
@@ -11,5 +11,6 @@ module.exports.requireMiddleware = function(req, res, next){
         return;
     }
 
+    res.locals.user = user;
     next();
 }
