@@ -13,7 +13,7 @@ module.exports.index = function(req, res){
         return  {
             id : trans.id,
             isComplete : trans.isComplete,
-            userName : user.name,
+            userName : user.name ,
             bookTitle : book.title
                     }
     });
