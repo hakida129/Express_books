@@ -23,39 +23,40 @@
   ],
   "users": [
     {
-      "name": "Ngoc",
-      "phone": "1242342",
-      "id": "5qiD4sc67",
-      "email": "123@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e"
+      "name": "vy",
+      "phone": "23325",
+      "email": "2312@gmail.com",
+      "password": "$2b$10$1JSbho7pT/pRjk3o9jJwI.YzmgnQxD9fUlU5FpFhNv2sVyVmfBZKe",
+      "id": "pFC93shx8",
+      "isAdmin": false,
+      "wrongLoginCount": 0
     },
     {
-      "name": "Thao",
-      "phone": "236546",
-      "id": "7UzfK2OuB",
-      "email": "abc@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e"
+      "name": "vietlong",
+      "phone": "88888888",
+      "email": "admin@book.com",
+      "password": "$2b$10$Qj2gYoTnBVulFtZPvtGHHe2h36.ROKMQJrh89lgETZld/JKvOrcqu",
+      "id": "TBVbBayC7",
+      "isAdmin": true,
+      "wrongLoginCount": 0
     },
     {
-      "name": "hakida",
-      "phone": "3454",
-      "id": "iTc_DOuW9",
-      "email": "1wer@gmail.com",
-      "password": "123456"
+      "name": "thang",
+      "phone": "234364",
+      "email": "sdgf@gmail.com",
+      "password": "$2b$10$9dj8HgQ.F5ET4.dx.IppCu8ubTIHX8CQ6ykKu63Yq06q/8z6wah2e",
+      "id": "fMzTKolWM",
+      "isAdmin": false,
+      "wrongLoginCount": 2
     },
     {
-      "name": "thinh",
-      "phone": "23424",
-      "id": "a4B9nDFcn",
-      "email": "asdf@gmail.com",
-      "password": "123456"
-    },
-    {
-      "name": "Thien ",
-      "phone": "123345456",
-      "id": "Mc3Pslt-t",
-      "email": "asdd@gmail.com",
-      "password": "123456"
+      "name": "hoang",
+      "phone": "213365",
+      "email": "hoang@gmail.com",
+      "password": "$2b$10$ey3C/90jaRcqK7yzqDgT3uxAko9Y24JEJizXwKMoYVJ1tg3ksuzLq",
+      "id": "X64lnXfYQ",
+      "isAdmin": false,
+      "wrongLoginCount": 0
     }
   ],
   "transactions": [
@@ -69,13 +70,13 @@
       "id": "grooJExi-",
       "userId": "iTc_DOuW9",
       "bookId": "k6ElS5axl",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": "_mSlOzuV24",
       "userId": "iTc_DOuW9",
       "bookId": "udGBMiQxH",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": "aibUMRkdZg",
@@ -105,24 +106,6 @@
       "id": "1uxIgmO0vM",
       "userId": "a4B9nDFcn",
       "bookId": "k6ElS5axl",
-      "isComplete": true
-    },
-    {
-      "id": "x5gLbWJmDv",
-      "userId": "a4B9nDFcn",
-      "bookId": "OaXFHhTlp",
-      "isComplete": true
-    },
-    {
-      "id": "RYKJ51_qzC",
-      "userId": "5qiD4sc67",
-      "bookId": "k6ElS5axl",
-      "isComplete": true
-    },
-    {
-      "id": "xPSaIcA9ru",
-      "userId": "7UzfK2OuB",
-      "bookId": "OaXFHhTlp",
       "isComplete": true
     }
   ]

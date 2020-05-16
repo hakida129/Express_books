@@ -1,7 +1,7 @@
 var express = require('express');
 
 var controller = require('../controllers/book.controller');
-var middleware = require('../validation/countCookie.middleware');
+var middleware = require('../middlewares/cookie.middleware');
 
 var router = express.Router();
 

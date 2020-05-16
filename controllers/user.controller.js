@@ -1,5 +1,6 @@
 var db = require('../db');
 var shortid = require('shortid');
+var bcrypt = require('bcrypt');
 
 module.exports.index = function(req, res){
     res.render('users/index',{
@@ -36,8 +37,16 @@ module.exports.create = function(req, res){
 };
 
 module.exports.postCreate = function(req, res){
-    req.body.id = shortid.generate();
-    db.get('users').push(req.body).write();
+    var newUser = req.body;
+    newUser.id = shortid.generate();
+    newUser.isAdmin = false;
+    newUser.wrongLoginCount = 0
+    var hash = bcrypt.hashSync(newUser.password, 10);
+    newUser.password = hash;
+
+    db.get('users')
+        .push(newUser)
+        .write();
     res.redirect('/users');
 };
 

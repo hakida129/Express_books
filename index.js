@@ -1,3 +1,6 @@
+//console.log(process.env);
+
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -8,7 +11,7 @@ var bookRouter = require('./routers/books.router');
 var userRouter = require('./routers/users.router');
 var transactionRouter = require('./routers/transactions.router');
 var authRouter = require('./routers/auth.router');
-var countCookie = require('./validation/countCookie.middleware');
+var countCookie = require('./middlewares/cookie.middleware');
 var authMiddleware = require('./middlewares/auth.middleware');
 
 app.use(bodyParser.json()) // for parsing application/json
