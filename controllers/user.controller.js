@@ -1,15 +1,22 @@
 var db = require('../db');
 var shortid = require('shortid');
 var bcrypt = require('bcrypt');
+var calPagination = require('../untils/pagination');
 
 module.exports.index = function(req, res){
+    var users = db.get('users').value()
+    var filtered = [...users];
+
+    var result = calPagination(req.query.page, filtered);
+
     res.render('users/index',{
-        users : db.get('users').value()
+        users: result.filtered,
+        pagination: result.pagination
     });
 };
 
 module.exports.search = function(req, res){
-    var name = req.query.name;
+    var name = req.query.name;  
     var matchUser = db.get('users').value().filter(function(user){
         return user.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
     })

@@ -29,7 +29,7 @@
   "users": [
     {
       "name": "vy",
-      "phone": "23325",
+      "phone": "098456242",
       "email": "2312@gmail.com",
       "password": "$2b$10$1JSbho7pT/pRjk3o9jJwI.YzmgnQxD9fUlU5FpFhNv2sVyVmfBZKe",
       "id": "pFC93shx8",
@@ -60,6 +60,42 @@
       "email": "hoang@gmail.com",
       "password": "$2b$10$ey3C/90jaRcqK7yzqDgT3uxAko9Y24JEJizXwKMoYVJ1tg3ksuzLq",
       "id": "X64lnXfYQ",
+      "isAdmin": false,
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "tu",
+      "phone": "123456456",
+      "email": "tu@gmail.com",
+      "password": "$2b$10$d.5hvQER6PQ.u0oBN47J8ujFHIIIFI5B9Y3T7OpxDgPbq4fMU8GDG",
+      "id": "axqaRdoaW",
+      "isAdmin": false,
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "dung",
+      "phone": "125434534",
+      "email": "dung123@gmail.com",
+      "password": "$2b$10$HCg4pEfBFYmQ5npSEo7XIO68dPtx2O3fAdNQFatzzZQf9QoKkpDWO",
+      "id": "ZTo_xpC4Z",
+      "isAdmin": false,
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "hakida",
+      "phone": "09878978",
+      "email": "hakida@gmail.com",
+      "password": "$2b$10$hb.tQeqJRRgpE3lbY64hdOW5UkoPMB/0ogjD4lZJe4NLNGAtKDZ2u",
+      "id": "uGibzVH1k",
+      "isAdmin": false,
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "manh",
+      "phone": "098234234",
+      "email": "manh@gmail.com",
+      "password": "$2b$10$tgR9FyINoxUKuD7FdIxJzeB09AXIhjIsShB.SODUnvqZyiEGxbxbC",
+      "id": "Fvt48OfQq",
       "isAdmin": false,
       "wrongLoginCount": 0
     }
@@ -94,6 +130,24 @@
       "userId": "X64lnXfYQ",
       "bookId": "OaXFHhTlp",
       "isComplete": false
+    },
+    {
+      "id": "ItLZTQ9Zgx",
+      "userId": "ZTo_xpC4Z",
+      "bookId": "udGBMiQxH",
+      "isComplete": false
+    },
+    {
+      "id": "LWzcWbUOyl",
+      "userId": "ZTo_xpC4Z",
+      "bookId": "OaXFHhTlp",
+      "isComplete": true
+    },
+    {
+      "id": "ZJgxgzpVAs",
+      "userId": "TBVbBayC7",
+      "bookId": "oltyEtCBe",
+      "isComplete": true
     }
   ]
 }

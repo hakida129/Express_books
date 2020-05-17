@@ -3,6 +3,11 @@ var shortid = require('shortid');
 
 module.exports.index = function(req, res){
     //var id = req.cookies.userId;
+    var page = req.query.page || 1;
+    var perPage = 4;
+    var start = ( page -1 ) * perPage;
+    var end = page * perPage;
+
     var userData = db.get('users').value();
     var bookData = db.get('books').value();
     var transactions = db.get('transactions').value();
@@ -19,7 +24,7 @@ module.exports.index = function(req, res){
     });
 
     res.render('transactions/index',{
-        transactions : collections,
+        transactions : collections.slice(start, end),
         userData, 
         bookData
     })
@@ -43,7 +48,7 @@ module.exports.create = function(req, res){
     res.redirect('/transactions')
 };
 
-module.exports.complate = function(req, res){
+module.exports.complete = function(req, res){
     var id = req.params.id;
     db.get("transactions").find({ id: id }).assign({isComplete : true}).write();
     res.redirect('/transactions')

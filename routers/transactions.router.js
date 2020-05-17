@@ -7,6 +7,6 @@ router.get('/', controller.index);
 
 router.post('/', controller.create);
 
-router.get('/:id/complete', controller.complate)
+router.get('/:id/complete', controller.complete)
 
 module.exports = router;
