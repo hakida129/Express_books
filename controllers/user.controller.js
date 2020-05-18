@@ -47,7 +47,8 @@ module.exports.postCreate = function(req, res){
     var newUser = req.body;
     newUser.id = shortid.generate();
     newUser.isAdmin = false;
-    newUser.wrongLoginCount = 0
+    newUser.wrongLoginCount = 0;
+    newUser.avatarUrl = req.file.path.split('/').slice('1').join('/')
     var hash = bcrypt.hashSync(newUser.password, 10);
     newUser.password = hash;
 
@@ -70,3 +71,24 @@ module.exports.postUpdate =function(req, res){
     res.redirect('/users');
     
 };
+
+module.exports.profile = function(req, res){
+    var id = req.params.id;
+    var user = db.get('users').find({ id: id}).value()
+    res.render('users/profile',{
+        user : user
+    });
+};
+
+module.exports.postProfile = function(req, res){
+    var id = req.params.id;
+    req.body.avatar = req.file.path.split('/').slice('1').join('/')
+    cloudinary.uploader.upload(req.file.path, function(error, result){
+        db.get('users')
+            .find({ id : id})
+            .assign({name : req.body.name, email : req.body.email, avatarUrl : req.body.avatar})
+            .write()
+            res.redirect('/users');
+    });
+    
+}

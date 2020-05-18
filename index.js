@@ -4,6 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var multer  = require('multer');
 
 var app = express();
 
@@ -13,6 +14,8 @@ var transactionRouter = require('./routers/transactions.router');
 var authRouter = require('./routers/auth.router');
 var countCookie = require('./middlewares/cookie.middleware');
 var authMiddleware = require('./middlewares/auth.middleware');
+
+var upload = multer({ dest: 'public/uploads/' })
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -31,7 +34,7 @@ app.get('/', function(req, res){
 });
 
 app.use('/books', bookRouter);
-app.use('/users', authMiddleware.requireMiddleware , userRouter);
+app.use('/users', upload.single('avatar'), authMiddleware.requireMiddleware , userRouter);
 app.use('/transactions',authMiddleware.requireMiddleware, transactionRouter);
 app.use('/auth', authRouter);
 
